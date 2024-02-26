@@ -31,7 +31,7 @@ const useAuth = () => {
           return;
         }
 
-        const { message } = err?.response?.data;
+        const { message } = err?.response?.data ?? "";
 
         if (message) {
           toast.error(message, {
@@ -47,7 +47,7 @@ const useAuth = () => {
         navigate(-1);
       },
       onError: (err) => {
-        const { message } = err?.response?.data;
+        const { message } = err?.response?.data ?? "";
 
         if (message) {
           toast.error(message, {
@@ -100,7 +100,7 @@ const useAuth = () => {
     },
     onError: (err) => {
       formik.setSubmitting(false);
-      const { message } = err?.response?.data;
+      const { message } = err?.response?.data ?? "";
 
       if (message) {
         toast.error(message);

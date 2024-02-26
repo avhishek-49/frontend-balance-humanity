@@ -11,10 +11,11 @@ import App from "./onboarding/login.jsx";
 import OtpCustomer from "./onboarding/otp.jsx";
 import SignUpApplication from "./onboarding/sign_up.jsx"; // Ensure the correct case
 import WelcomePage from "./onboarding/welcome_page.jsx";
-import {QueryClient, QueryClientProvider} from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import ForgotPassword from "./onboarding/ForgotPassword.jsx";
+import NavBar from "./components/Navbar.jsx";
 
- const client=  new QueryClient
+const client = new QueryClient
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
     path: "/profile",
     element: <Profile />,
   },
-    {
+  {
     path: "/forgot-password",
     element: <ForgotPassword />,
   },
@@ -59,12 +60,12 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <div>
-          <QueryClientProvider client={client}>
-          <RouterProvider router={router}>
-             
-          </RouterProvider>
-    </QueryClientProvider>
-     <ToastContainer />
+      <QueryClientProvider client={client}>
+        <RouterProvider router={router}>
+
+        </RouterProvider>
+      </QueryClientProvider>
+      <ToastContainer />
     </div>
   </React.StrictMode>
 );

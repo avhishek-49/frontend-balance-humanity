@@ -1,7 +1,8 @@
 .custom-navbar-bg {
-  background-color: #f2796e !important;
-  padding: 0.2rem 1rem !important;
+  /* background-color: #f2796e !important; */
+  padding: 1rem 1rem;
 }
+
 .navbar-brand {
   font-size: 25px;
 }
@@ -14,4 +15,10 @@
 .nav-item {
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .custom-navbar-bg {
+    padding: 0.2rem 1rem;
+  }
 }

@@ -85,9 +85,9 @@ const WelcomePage = () => {
             </h1>
           </div>
           <div className="container">
-            {data?.data?.newFeedData?.length > 0 && data?.data?.newFeedData?.map((item) => {
+            {data?.data?.newFeedData?.length > 0 && data?.data?.newFeedData?.map((item, index) => {
               return (
-                <Card sx={{ maxWidth: 1000 }} style={{ margin: 30, padding: 20, backgroundColor: '#f4f7fa' }}>
+                <Card key={index} sx={{ maxWidth: 1000 }} style={{ margin: 30, padding: 20, backgroundColor: '#FFFFFF' }}>
                   <CardHeader
                     avatar={
                       <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -126,29 +126,29 @@ const WelcomePage = () => {
                   </Typography>
                   <CardActions disableSpacing>
                     <IconButton aria-label="share">
-                      <VolunteerActivismIcon style={{color:'purple'}}  onClick={() => navigate('/donate', { state: item?.fullName })} />
+                      <VolunteerActivismIcon style={{ color: 'purple' }} onClick={() => navigate('/donate', { state: item?.fullName })} />
                     </IconButton>
-                    <IconButton aria-label="add to favorites"  style={{color:'purple'}}  onClick={() => navigate('/donate', { state: item?.fullName })}>
+                    <IconButton aria-label="add to favorites" style={{ color: 'purple' }} onClick={() => navigate('/donate', { state: item?.fullName })}>
                       <AttachMoneyIcon />
                     </IconButton>
                   </CardActions>
                   <Paper
-      component="form"
-      sx={{ p: '10px 15px', display: 'flex', alignItems: 'center', width: 950 }}
-      style={{flexDirection: 'row'}}
-    >
-      <InputBase
-        sx={{ flex: 1, width:110, paddingTop:1, paddingLeft:1, marginRight:1 }}
-        placeholder="Comment here..."
-        inputProps={{ 'aria-label': 'search google maps' }}
-      />
-      <div>
-      <IconButton type="button" sx={{ p: '10px'  }} aria-label="search" onClick={()=>{console.log('data')}}>
-        <CommentIcon />
-      </IconButton>
-      </div>
-    
-    </Paper>
+                    component="form"
+                    sx={{ p: '10px 15px', display: 'flex', alignItems: 'center', width: 950 }}
+                    style={{ flexDirection: 'row' }}
+                  >
+                    <InputBase
+                      sx={{ flex: 1, width: 110, paddingTop: 1, paddingLeft: 1, marginRight: 1 }}
+                      placeholder="Comment here..."
+                      inputProps={{ 'aria-label': 'search google maps' }}
+                    />
+                    <div>
+                      <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={() => { console.log('data') }}>
+                        <CommentIcon />
+                      </IconButton>
+                    </div>
+
+                  </Paper>
                 </Card>
                 // <div key={item.id} class="custom-card card mb-3">
                 //   <div className="custom-card-content">
