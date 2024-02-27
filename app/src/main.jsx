@@ -13,6 +13,7 @@ import SignUpApplication from "./onboarding/sign_up.jsx"; // Ensure the correct 
 import WelcomePage from "./onboarding/welcome_page.jsx";
 import {QueryClient, QueryClientProvider} from 'react-query'
 import ForgotPassword from "./onboarding/ForgotPassword.jsx";
+import { createRoot } from 'react-dom/client';
 
  const client=  new QueryClient
 
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
 ]);
 
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <div>
           <QueryClientProvider client={client}>

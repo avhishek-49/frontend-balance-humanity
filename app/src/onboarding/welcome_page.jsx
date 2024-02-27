@@ -85,9 +85,9 @@ const WelcomePage = () => {
             </h1>
           </div>
           <div className="container">
-            {data?.data?.newFeedData?.length > 0 && data?.data?.newFeedData?.map((item) => {
+            {data?.data?.newFeedData?.length > 0 && data?.data?.newFeedData?.map((item, index) => {
               return (
-                <Card sx={{ maxWidth: 1000 }} style={{ margin: 30, padding: 20, backgroundColor: '#f4f7fa' }}>
+                <Card sx={{ maxWidth: 1000 }} style={{ margin: 30, padding: 20, backgroundColor: '#f4f7fa' }} key={index}>
                   <CardHeader
                     avatar={
                       <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
