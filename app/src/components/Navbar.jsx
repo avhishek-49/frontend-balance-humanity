@@ -66,6 +66,8 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+
+  //event to open 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -104,6 +106,7 @@ export default function PrimarySearchAppBar() {
         handleMenuClose();
         navigate('/profile')
       }}>Profile</MenuItem>
+
       <MenuItem onClick={()=>{
         handleMenuClose();
         navigate('/')
@@ -179,7 +182,7 @@ export default function PrimarySearchAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton onClick={()=>{navigate("/home")}} size="large" aria-label="show 4 new mails" color="inherit">
               <Badge color="error">
                 <HomeIcon />
               </Badge>
