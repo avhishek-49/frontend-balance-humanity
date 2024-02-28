@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./styles/App.css";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { CircularProgress } from "@material-ui/core";
 import Logo from "../assets/balancehumanitylogo.svg"
@@ -37,9 +37,11 @@ const App = () => {
   return (
     <div className="container-fluid main-wrapper">
       <div className="content">
-        <div className="logo">
-    <img src={Logo} alt="" />
-        </div>
+      <div className="logo">
+        <Link to="/">
+          <img src={Logo} alt="" />
+        </Link>
+      </div>
         <div className="image"></div>
         <div className="text">We Are In A Mission To Help The HelpLess Join Our Action!</div>
       </div>

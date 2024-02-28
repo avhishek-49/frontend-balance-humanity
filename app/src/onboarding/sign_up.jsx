@@ -1,7 +1,7 @@
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React from "react";
 import { FaUser } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import "./styles/sign_up.css";
 import Logo from "../assets/balancehumanitylogo.svg"
 
@@ -28,8 +28,10 @@ const SignUpApplication = () => {
     <div className="container-fluid main-wrapper">
       <div className="content">
       <div className="logo">
-    <img src={Logo} alt="" />
-        </div>
+        <Link to="/">
+          <img src={Logo} alt="" />
+        </Link>
+      </div>
 
         <div className="image"></div>
 
