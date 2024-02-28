@@ -17,6 +17,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
+import Logo from "../assets/navLogo.svg"; // Adjust the path to your logo
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -62,7 +63,7 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -104,15 +105,13 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={()=>{
         handleMenuClose();
-        navigate('/profile')
+        navigate('/profile');
       }}>Profile</MenuItem>
 
       <MenuItem onClick={()=>{
         handleMenuClose();
-        navigate('/')
-
-
-        }}>Logout</MenuItem>
+        navigate('/');
+      }}>Logout</MenuItem>
     </Menu>
   );
 
@@ -170,16 +169,9 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }} >
-      <AppBar position="static" style={{backgroundColor: "#020077"}}>
+      <AppBar position="static" style={{ backgroundColor: "#098666" }}>
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-           Balance Humanity
-          </Typography>
+          <img src={Logo} alt="Logo" style={{ height: 70, marginRight: 10 }} />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton onClick={()=>{navigate("/home")}} size="large" aria-label="show 4 new mails" color="inherit">

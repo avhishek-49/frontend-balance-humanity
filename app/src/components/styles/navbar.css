@@ -15,3 +15,12 @@
   display: flex;
   align-items: center;
 }
+
+
+.logo {
+  width: 300px;
+}
+
+.logo img {
+  width: 100%;
+}

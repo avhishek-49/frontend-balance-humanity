@@ -88,7 +88,7 @@ const App = () => {
         Need an account? <a href="/submit">Signup here!</a>
         </div>
         <div>
-          <a href="/forget-password">Forget Password?</a>
+          <a href="/forgot-password">Forget Password?</a>
         </div>
         </div>
         
