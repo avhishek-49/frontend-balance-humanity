@@ -3,24 +3,19 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import "./styles/otp.css";
 
-
-
 const OtpCustomer = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
-  const [secondsLeft, setSecondsLeft] = useState(60); // Change as needed
+  const [secondsLeft, setSecondsLeft] = useState(60);
   const inputsRef = useRef([]);
-  const navigate = useNavigate(); // Add useNavigate hook
-  const [data, setData] = useState({})
+  const navigate = useNavigate();
+  const [data, setData] = useState({});
 
-    const {mutate} = useAuth()
-
+  const { mutate } = useAuth();
 
   useEffect(() => {
-    const temp = JSON.parse(localStorage.getItem('customer'))
-
-    setData(temp)
-  }, [])
-
+    const temp = JSON.parse(localStorage.getItem('customer'));
+    setData(temp);
+  }, []);
 
   useEffect(() => {
     if (secondsLeft > 0) {
@@ -48,18 +43,15 @@ const OtpCustomer = () => {
     }
   };
 
-
   const handleSubmit = async () => {
     const enteredOtp = otp.join("");
     console.log("Submitting OTP:", enteredOtp);
     setOtp(["", "", "", "", "", ""]);
 
-    let temp = {...data, otp: enteredOtp}
+    let temp = { ...data, otp: enteredOtp };
+    console.log(temp);
 
-    console.log(temp)
-
-    mutate({...data, otp: enteredOtp})
-
+    mutate({ ...data, otp: enteredOtp });
   };
 
   return (

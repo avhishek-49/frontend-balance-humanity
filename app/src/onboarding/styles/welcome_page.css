@@ -27,3 +27,21 @@
 .custom-card-content {
   display: flex;
 }
+
+.main_container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  padding: 0 30px;
+
+}
+
+.main-page-wrapper {
+  grid-column: 3 / 10;
+}
+
+.campaign_form {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}

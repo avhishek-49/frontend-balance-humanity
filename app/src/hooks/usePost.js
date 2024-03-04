@@ -50,7 +50,7 @@ const usePost = () => {
 
       formData.append("description", values.description);
       formData.append("file", values.image);
-
+      console.log(formData)
       mutate(formData);
     },
   });

@@ -28,7 +28,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import Divider from '@mui/material/Divider';
 import CommentIcon from '@mui/icons-material/Comment';
-
+import CampaignForm from './../components/CampaignForm'
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -72,18 +72,18 @@ const WelcomePage = () => {
 
   const { data } = useFetchPosts()
 
+
+
   const navigate = useNavigate()
 
   return (
     <>
       <Layout>
-        <div className="container-fluid main-page-wrapper">
-          <div className="main-page-banner">
-            <h1>
-              We Are In A Mission To Help <br /> The HelpLess <br /> Join Our
-              Action!
-            </h1>
+        <div className="main_container">
+          <div>
+            <CampaignForm />
           </div>
+        <div className="container-fluid main-page-wrapper">
           <div className="container">
             {data?.data?.newFeedData?.length > 0 && data?.data?.newFeedData?.map((item, index) => {
               return (
@@ -177,9 +177,16 @@ const WelcomePage = () => {
             })}
           </div>
         </div>
+        </div>
       </Layout>
     </>
   );
 };
 
+{/* <div className="main-page-banner">
+            { <h1>
+              We Are In A Mission To Help <br /> The HelpLess <br /> Join Our
+              Action!
+            </h1> }
+          </div> */}
 export default WelcomePage;

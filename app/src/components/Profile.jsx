@@ -41,7 +41,7 @@ const Profile = () => {
           <IconButton
             aria-label="upload-profile-picture"
             style={{
-              position: 'absolute',
+              position: 'absolute', 
               bottom: 0,
               right: 0,
               backgroundColor: 'white', // Adjust styling as needed

@@ -15,8 +15,8 @@
 
 .section-form form {
   width: 450px;
-  background: #ffecea;
   padding: 40px;
+  background-color: ghostwhite;
 }
 
 .profile-style {
@@ -32,8 +32,12 @@
   padding: 1.5rem;
 }
 .comment-form {
-  display: flex;
-  gap: 1rem;
+  /* display: flex;
+  gap: 1rem; */
+}
+
+form span {
+  color:white !important;
 }
 .comment-form button {
   width: 100px;
@@ -89,4 +93,18 @@
   justify-content: center;
   margin-top: 2rem;
   padding: 0.5rem;
+}
+
+
+
+.slogn-text{
+  text-align: center;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.678);
+}
+
+
+.header-text{
+  font-weight: 700;
+  color: rgba(2, 43, 2, 0.753);
 }
