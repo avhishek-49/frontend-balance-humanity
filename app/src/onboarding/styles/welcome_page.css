@@ -42,6 +42,7 @@
 }
 
 .campaign_form {
+  position: fixed;
   grid-column: 1 / 3;
   grid-row: 1;
 }

@@ -29,6 +29,10 @@ import DirectionsIcon from '@mui/icons-material/Directions';
 import Divider from '@mui/material/Divider';
 import CommentIcon from '@mui/icons-material/Comment';
 import CampaignForm from './../components/CampaignForm'
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import Box from '@mui/material/Box';
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -79,11 +83,25 @@ const WelcomePage = () => {
   return (
     <>
       <Layout>
+      <Box sx={{ '& > :not(style)': {  } }}>
+      <Fab variant="extended" style={{
+  margin: "0px",
+  top: "auto",
+  right: "80px",
+  bottom: "80px",
+  left: "auto",
+  position: "fixed",
+  backgroundColor:"rgb(9, 134, 102)"
+}}>
+        <AddIcon sx={{ mr: 1 }} />
+        Verify KYC
+      </Fab>
+    </Box>
         <div className="main_container">
-          <div>
+          <div className="campaign_form" style={{marginTop: "80px"}}>
             <CampaignForm />
           </div>
-        <div className="container-fluid main-page-wrapper">
+        <div className="container-fluid main-page-wrapper" style={{marginTop: "80px"}}>
           <div className="container">
             {data?.data?.newFeedData?.length > 0 && data?.data?.newFeedData?.map((item, index) => {
               return (
@@ -100,7 +118,7 @@ const WelcomePage = () => {
                       </IconButton>
                     }
                     title={item?.fullName}
-                    subheader="September 14, 2016"
+                    subheader = {item?.postCreateDate}
                   />
                   <CardMedia
                     component="img"
@@ -113,7 +131,7 @@ const WelcomePage = () => {
                   <Typography paragraph>
                     <IconButton aria-label="share" type="">
                       <LocationOnIcon />
-                    </IconButton> {item?.district_name}
+                    </IconButton> {item?.name}
                   </Typography>
                   <Typography paragraph>
                     <IconButton aria-label="share">
@@ -126,7 +144,7 @@ const WelcomePage = () => {
                   </Typography>
                   <CardActions disableSpacing>
                     <IconButton aria-label="share">
-                      <VolunteerActivismIcon style={{color:'purple'}}  onClick={() => navigate('/donate', { state: item?.fullName })} />
+                      <VolunteerActivismIcon style={{color:'purple'}}  onClick={() => navigate('', { state: item?.fullName })} />
                     </IconButton>
                     <IconButton aria-label="add to favorites"  style={{color:'purple'}}  onClick={() => navigate('/donate', { state: item?.fullName })}>
                       <AttachMoneyIcon />
