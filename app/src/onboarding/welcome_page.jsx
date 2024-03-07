@@ -92,7 +92,9 @@ const WelcomePage = () => {
   left: "auto",
   position: "fixed",
   backgroundColor:"rgb(9, 134, 102)"
-}}>
+}}
+onClick={() => navigate('/verify-kyc')}
+>
         <AddIcon sx={{ mr: 1 }} />
         Verify KYC
       </Fab>
@@ -105,7 +107,7 @@ const WelcomePage = () => {
           <div className="container">
             {data?.data?.newFeedData?.length > 0 && data?.data?.newFeedData?.map((item, index) => {
               return (
-                <Card sx={{ maxWidth: 1000 }} style={{ margin: 30, padding: 20, backgroundColor: '#f4f7fa' }} key={index}>
+                <Card sx={{ maxWidth: 2000 }} style={{width: '1100px',margin: 30, padding: 20, backgroundColor: '#f4f7fa',marginLeft: 180 }} key={index}>
                   <CardHeader
                     avatar={
                       <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
