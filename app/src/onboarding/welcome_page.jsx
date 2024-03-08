@@ -122,12 +122,14 @@ onClick={() => navigate('/verify-kyc')}
                     title={item?.fullName}
                     subheader = {item?.postCreateDate}
                   />
-                  <CardMedia
-                    component="img"
-                    height="300"
-                    image={item.image}
-                    alt="Paella dish"
-                  />
+           <a href={item.image} target="_blank" rel="noopener noreferrer">
+         <CardMedia
+            component="img"
+            height="300"
+            image={item.image}
+            alt="Paella dish"
+           />
+      </a>
                   <CardContent>
                   </CardContent>
                   <Typography paragraph>
