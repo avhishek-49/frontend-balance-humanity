@@ -10,10 +10,8 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
-
 const CampaignForm = () => {
-
-  const { formik } = usePost()
+  const { formik } = usePost();
 
   const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
@@ -27,23 +25,41 @@ const CampaignForm = () => {
     width: 1,
   });
 
-  const { values, handleChange, setFieldValue, errors, handleSubmit, isSubmitting } = formik
+  const { values, handleChange, setFieldValue, errors, handleSubmit, isSubmitting } = formik;
 
   return (
-    <paper className="container main-section-wrapper" elevation={24}>
+    <Paper className="container main-section-wrapper" elevation={24}>
       <div className="section-form">
-        <form id="form">
+        <form id="form" onSubmit={handleSubmit}>
           <h1 className="header-text">Start a Campaign !</h1>
           <TextField
-          
             id="standard-basic"
-            label="Standard"
+            label="Description"
             name="description"
             helperText="Incorrect entry."
             value={values.description}
             onChange={handleChange}
-            variant="standard" />
-          {errors?.description && <text style={{ color: 'red' }}>{errors?.description}</text>}
+            variant="standard"
+          />
+          {errors?.description && <p style={{ color: 'red' }}>{errors?.description}</p>}
+          <TextField
+            id="fromDate"
+            label="From Date(optional)"
+            name="fromDate"
+            type="date"
+            value={values.fromDate}
+            onChange={handleChange}
+            InputLabelProps={{ shrink: true }}
+          />
+          <TextField
+            id="toDate"
+            label="To Date(optional)"
+            name="toDate"
+            type="date"
+            value={values.toDate}
+            onChange={handleChange}
+            InputLabelProps={{ shrink: true }}
+          />
           <div>
             <Button
               component="label"
@@ -65,7 +81,7 @@ const CampaignForm = () => {
       
           </div>
           <div>
-            <button type="button" id="btn" onClick={handleSubmit} disabled={isSubmitting}>
+          <button type="button" id="btn" onClick={handleSubmit} disabled={isSubmitting}>
               Post
             </button>
           </div>
@@ -75,7 +91,7 @@ const CampaignForm = () => {
           </p>
         </form>
       </div>
-    </paper>
+    </Paper>
   );
 };
 

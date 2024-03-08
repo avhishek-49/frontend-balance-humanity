@@ -35,6 +35,8 @@ const usePost = () => {
   const initialValues = {
     description: "",
     image: null,
+    fromDate:"",
+    toDate:""
   };
 
   const schema = yup.object().shape({
@@ -50,6 +52,8 @@ const usePost = () => {
       
       formData.append("description", values.description);
       formData.append("file", values.image);
+      formData.append("fromDate", values.fromDate);
+      formData.append("toDate", values.toDate);
       console.log(formData)
       mutate(formData);
     },
