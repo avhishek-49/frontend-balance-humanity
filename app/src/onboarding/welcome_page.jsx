@@ -110,9 +110,8 @@ onClick={() => navigate('/verify-kyc')}
                 <Card sx={{ maxWidth: 2000 }} style={{width: '1100px',margin: 30, padding: 20, backgroundColor: '#f4f7fa',marginLeft: 180 }} key={index}>
                   <CardHeader
                     avatar={
-                      <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        R
-                      </Avatar>
+                      <Avatar src={item.profilePicture} aria-label="recipe" />
+
                     }
                     action={
                       <IconButton aria-label="settings">
