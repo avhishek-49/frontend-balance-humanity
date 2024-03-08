@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import usePost from "../hooks/usePost";
 import Layout from "./Layout";
 import "./styles/main_style.css";
@@ -19,11 +19,22 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'; // Im
 import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
+  const [page, setPage] = useState(1);
   const { useFetchMyPosts } = usePost();
   const { useFetchProfile } = useAuth();
-  const { data: res } = useFetchMyPosts();
+  const { data: res, fetchMore } = useFetchMyPosts(page);
   const { data: profile } = useFetchProfile();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+      setPage(page + 1);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [page]);
 
   return (
     <Layout>

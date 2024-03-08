@@ -168,8 +168,8 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }} >
-      <AppBar position="static" style={{ backgroundColor: "#098666", position:"fixed", zIndex:"1000" }}>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="fixed" style={{ backgroundColor: "#098666", zIndex: "1000" }}>
         <Toolbar>
           <img src={Logo} alt="Logo" style={{ height: 70, marginRight: 10 }} />
           <Box sx={{ flexGrow: 1 }} />
