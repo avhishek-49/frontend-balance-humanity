@@ -3,6 +3,7 @@ const QUERIES = {
   myProfile: "myProfile",
   allPosts: "allPosts",
   districts: "districts",
+  bankLists:"bankList"
 };
 
 export default QUERIES;

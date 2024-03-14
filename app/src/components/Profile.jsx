@@ -17,6 +17,7 @@ import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'; // Import the icon
 import { useNavigate } from 'react-router-dom';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const Profile = () => {
   const [page, setPage] = useState(1);
@@ -25,6 +26,16 @@ const Profile = () => {
   const { data: res, fetchMore } = useFetchMyPosts(page);
   const { data: profile } = useFetchProfile();
   const navigate = useNavigate();
+
+  const avatarStyle = {
+    width: '180px', // Set your desired width
+    height: '180px', // Set your desired height
+    position: 'relative', // Ensure the position is relative for absolute positioning of the Avatar
+    top: '22px', // Adjust top value as needed for positioning up or down
+    marginRight:"60px"
+  };
+
+  const profilePicture = profile?.data?.profileData[0]?.profilePicture;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,17 +50,16 @@ const Profile = () => {
   return (
     <Layout>
       <div className="container main-section-wrapper">
-        <div style={{ position: 'relative', width: '150px', height: '150px' }}>
-          <img
-            src="/images/user.png"
-            style={{
-              width: "100%",
-              height: "100%",
-              borderRadius: "50%",
-              objectFit: "cover",
-            }}
-          />
-          <IconButton
+        <div>
+        avatar={
+  <Avatar 
+    src={profilePicture} 
+    aria-label="recipe" 
+    style={avatarStyle}
+  />
+}
+          
+          {/* <IconButton
             aria-label="upload-profile-picture"
             style={{
               position: 'absolute', 
@@ -59,13 +69,13 @@ const Profile = () => {
             }}
           >
             <AddPhotoAlternateIcon />
-          </IconButton>
+          </IconButton> */}
         </div>
         <div className="profile-style">
-          <p>Name: Abhishek Paudel</p>
-          <p>Mobile number: {profile?.data?.profileData[0]?.mobile_number}</p>
+          <p>Name: {profile?.data?.profileData[0]?.fullName}</p>
+          <p>Mobile number: {profile?.data?.profileData[0]?.mobileNumber}</p>
           <p>Email: {profile?.data?.profileData[0]?.email}</p>
-          <p>Address: {profile?.data?.profileData[0]?.district_name}</p>
+          <p>Address: {profile?.data?.profileData[0]?.districtName}</p>
           <p>Amount: Rs {profile?.data?.profileData[0]?.amount}</p>
         </div>
         {res?.data?.data?.length > 0 && (
@@ -73,17 +83,23 @@ const Profile = () => {
             <h2>My Campaigns</h2>
             {res?.data?.data?.map((item, index) => (
               <Card key={index} style={{ marginBottom: '20px' }}>
-                <CardHeader
-                  avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">R</Avatar>}
-                  title={item?.fullName}
-                  subheader="September 14, 2016"
-                />
+                 <CardHeader
+                    avatar={<Avatar src={item.profilePicture} aria-label="recipe" />}
+                    action={<IconButton aria-label="settings"><MoreVertIcon /></IconButton>}
+                    title={item?.fullName}
+                    subheader={item?.postDate}
+                  />
+                <a href={item?.image} target="_blank" rel="noopener noreferrer">
+
                 <CardMedia
                   component="img"
                   height="300"
                   image={item.image}
                   alt="Paella dish"
                 />
+                  </a>
+
+           
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
                     <IconButton aria-label="share" type="">
