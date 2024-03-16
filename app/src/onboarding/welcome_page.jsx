@@ -81,7 +81,7 @@ const WelcomePage = () => {
           <div className="container-fluid main-page-wrapper" style={{marginTop: "80px"}}>
             <div className="container">
               {data?.data?.newFeedData?.length > 0 && data?.data?.newFeedData?.map((item, index) => (
-                <Card sx={{ maxWidth: 2000 }} style={{width: '1100px',margin: 30, padding: 20, backgroundColor: '#f4f7fa',marginLeft: 180 }} key={index}>
+                <Card sx={{ maxWidth: 2000 }} style={{width: '900px',margin: 30, padding: 20, backgroundColor: '#f4f7fa',marginLeft: 350 }} key={index}>
                   <CardHeader
                     avatar={<Avatar src={item.profilePicture} aria-label="recipe" />}
                     action={<IconButton aria-label="settings"><MoreVertIcon /></IconButton>}
